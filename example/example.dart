@@ -19,6 +19,4 @@ void main() async {
   print('Episode Url: ' + episode.url);
   print('Episode Cover: ' + episode.cover);
   print('Episode Playback: ' + episode.playbackState.toString());
-
-  episode.play();
 }
