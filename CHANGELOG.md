@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.0.4
+
+- Linting with Dart Analyzer
+
+## 1.0.3
+
+- Linting with Dart Analyzer
+
 ## 1.0.2
 
 - Refactor
