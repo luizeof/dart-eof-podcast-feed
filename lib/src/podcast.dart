@@ -27,7 +27,7 @@ class Podcast {
     podcastCoverUrl =
         _docXML.findAllElements('image').first.findElements('url').first.text;
 
-    for (final XmlElement e in _docXML.findAllElements('item')) {
+    for (var e in _docXML.findAllElements('item')) {
       episodes.add(
         Episode(
           e.findElements('title').isEmpty
