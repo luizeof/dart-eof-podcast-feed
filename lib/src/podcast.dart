@@ -56,7 +56,7 @@ class Podcast {
   }
 
   /// Episode List
-  List<Episode> episodes = List<Episode>();
+  List<Episode> episodes = [];
 
   /// Podcast Title
   String title;
