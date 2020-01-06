@@ -4,33 +4,9 @@ import 'episode.dart';
 import 'playback_state.dart';
 
 /// Class Podcast
-/// Represents the Podcast Entity and atributes:
+/// Represents the Podcast Entity and atributes
 ///
 class Podcast {
-  /// Episode List
-  List<Episode> episodes = List<Episode>();
-
-  /// Podcast Title
-  String title;
-
-  /// Podcast Url
-  String url;
-
-  /// Podcast Cover Url
-  String podcastCoverUrl;
-
-  /// Podcast Author
-  String author;
-
-  /// Podcast Copyright
-  String copyright;
-
-  /// Podcast Description
-  String description;
-
-  /// Current Episde Playing index
-  int _playing_index = -1;
-
   /// Constructor
   /// XmlDocument [_docXML]
   Podcast(XmlDocument _docXML) {
@@ -51,7 +27,7 @@ class Podcast {
     podcastCoverUrl =
         _docXML.findAllElements('image').first.findElements('url').first.text;
 
-    for (XmlElement e in _docXML.findAllElements('item')) {
+    for (final XmlElement e in _docXML.findAllElements('item')) {
       episodes.add(
         Episode(
           e.findElements('title').isEmpty
@@ -79,53 +55,56 @@ class Podcast {
     }
   }
 
+  /// Episode List
+  List<Episode> episodes = List<Episode>();
+
+  /// Podcast Title
+  String title;
+
+  /// Podcast Url
+  String url;
+
+  /// Podcast Cover Url
+  String podcastCoverUrl;
+
+  /// Podcast Author
+  String author;
+
+  /// Podcast Copyright
+  String copyright;
+
+  /// Podcast Description
+  String description;
+
+  /// Current Episde Playing index
+  int _playingIndex = -1;
+
   /// Init a Podcast Class with the Feed Address [uri]
   static Future<Podcast> fromFeed(String uri) async {
-    if (uri == null) throw Exception('URL cannot be null');
     try {
-      final rssResponse = await http.get(uri);
-      var document = parse(rssResponse.body);
+      final http.Response rssResponse = await http.get(uri);
+      final XmlDocument document = parse(rssResponse.body);
       return Podcast(document);
     } catch (e) {
-      print("ERROR: Could not parse response body: \n${e.message}");
-    }
-    return null;
-  }
-
-  /// Return number of Show Episodes
-  int get countEpisodes {
-    return episodes.length;
-  }
-
-  /// Return if Show has Episodes
-  bool get hasEpisodes {
-    return !episodes.isEmpty;
-  }
-
-  /// Set currente playing episode index [i]
-  void set isPlaying(i) {
-    if (_playing_index >= 0) {
-      this._playing_index = i;
-    } else {
-      this._playing_index = -1;
-    }
-  }
-
-  /// Return current Playerback State
-  PlaybackState get playbackState {
-    if (_playing_index >= 0) {
-      return this.nowPlaying.playbackState;
-    } else {
-      return PlaybackState.stopped;
-    }
-  }
-
-  /// Return Episode now laying
-  Episode get nowPlaying {
-    if (_playing_index >= 0) {
-      return episodes[this._playing_index];
-    } else {
       return null;
     }
   }
+
+  /// Return number of Show Episodes
+  int get countEpisodes => episodes.length;
+
+  /// Return if Show has Episodes
+  bool get hasEpisodes => episodes.isNotEmpty;
+
+  /// Set currente playing episode index [i]
+  void isPlaying(int i) =>
+      (_playingIndex >= 0) ? _playingIndex = i : _playingIndex = -1;
+
+  /// Return current Playerback State
+  PlaybackState get playbackState =>
+      (_playingIndex >= 0) ? nowPlaying.playbackState : PlaybackState.stopped;
+
+  /// Return Episode now laying
+  Episode get nowPlaying =>
+      (_playingIndex >= 0) ? episodes[_playingIndex] : null;
 }

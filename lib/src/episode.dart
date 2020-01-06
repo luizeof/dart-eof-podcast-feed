@@ -1,6 +1,18 @@
 import 'playback_state.dart';
 
+/// Class Episode
+/// Represents the Episode Entity and atributes
+///
 class Episode {
+  /// Constructor
+  Episode(
+    this.title,
+    this.description,
+    this.pubDate,
+    this.url,
+    this.cover,
+  );
+
   /// Episode Title
   String title;
 
@@ -19,32 +31,21 @@ class Episode {
   /// Episode Playback Status
   PlaybackState _playback = PlaybackState.stopped;
 
-  /// Constructor
-  Episode(
-    this.title,
-    this.description,
-    this.pubDate,
-    this.url,
-    this.cover,
-  );
-
   /// Return Episode Playback Status
-  PlaybackState get playbackState {
-    return _playback;
-  }
+  PlaybackState get playbackState => _playback;
 
   /// Play Episode
   void play() {
-    this._playback = PlaybackState.playing;
+    _playback = PlaybackState.playing;
   }
 
   /// Pause Episode
   void pause() {
-    this._playback = PlaybackState.paused;
+    _playback = PlaybackState.paused;
   }
 
   /// Stop Episode
   void stop() {
-    this._playback = PlaybackState.stopped;
+    _playback = PlaybackState.stopped;
   }
 }

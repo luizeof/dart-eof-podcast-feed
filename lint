@@ -1,3 +1,4 @@
 #!/bin/bash
+clear
 dartanalyzer --options analysis_options.yaml .
 pub publish --dry-run
