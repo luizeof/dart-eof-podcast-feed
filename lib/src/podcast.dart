@@ -82,8 +82,8 @@ class Podcast {
   /// Init a Podcast Class with the Feed Address [uri]
   static Future<Podcast> fromFeed(String uri) async {
     try {
-      final http.Response rssResponse = await http.get(uri);
-      final XmlDocument document = parse(rssResponse.body);
+      final rssResponse = await http.get(uri);
+      final document = parse(rssResponse.body);
       return Podcast(document);
     } catch (e) {
       return null;
