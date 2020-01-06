@@ -1,6 +1,6 @@
 name: podcast_feed
 version: 1.0.2
-description: Dart Podcast Feed Parser
+description: podcast_feed is a package for Dart and Flutter that Read and Parse RSS Feed
 homepage: https://github.com/stackingwidgets/dart-podcast-feed
 environment:
   sdk: ">=2.7.0 <3.0.0"
