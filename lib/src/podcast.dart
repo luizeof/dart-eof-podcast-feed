@@ -27,7 +27,7 @@ class Podcast {
     podcastCoverUrl =
         _docXML.findAllElements('image').first.findElements('url').first.text;
 
-    for (var e in _docXML.findAllElements('item')) {
+    for (final e in _docXML.findAllElements('item')) {
       episodes.add(
         Episode(
           e.findElements('title').isEmpty
@@ -82,8 +82,8 @@ class Podcast {
   /// Init a Podcast Class with the Feed Address [uri]
   static Future<Podcast> fromFeed(String uri) async {
     try {
-      final rssResponse = await http.get(uri);
-      final document = parse(rssResponse.body);
+      var rssResponse = await http.get(uri);
+      var document = parse(rssResponse.body);
       return Podcast(document);
     } catch (e) {
       return null;

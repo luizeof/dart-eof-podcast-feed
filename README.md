@@ -6,7 +6,8 @@ Dart Podcast Feed Parser
 import 'package:podcast_feed/podcast_feed.dart';
 ```
 
-aa
+The `Podcast` class has a static method `fromFeed` that return a
+`Podcast` object.
 
 ```dart
 void main() async {
@@ -37,6 +38,5 @@ void main() async {
   print('Episode Cover: ' + episode.cover);
   print('Episode Playback: ' + episode.playbackState.toString());
 
-  episode.play();
 }
 ```
