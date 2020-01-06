@@ -1,0 +1,11 @@
+name: podcast_feed
+version: 1.0.0
+description: Dart Podcast Feed Parser
+homepage: https://github.com/stackingwidgets/dart-podcast-feed
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+dependencies:
+  xml: ^3.7.0
+  http: ^0.12.0+3
+dev_dependencies:
+  test: ^1.9.0
