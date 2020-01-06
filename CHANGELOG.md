@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.7
+
+- Update README
+
 ## 1.0.6
 
 - Linting with Dart Analyzer
