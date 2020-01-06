@@ -25,7 +25,7 @@ void main() async {
   print('Podcast Playback: ' + podcast.playbackState.toString());
 ```
 
- You can access a `List` of `Episode` on `porcast.episodes` property:
+ You can access a `List` of `Episode` on `podcast.episodes` property:
 
 ```dart
   // And navigate on Episodes List
