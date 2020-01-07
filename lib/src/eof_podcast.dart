@@ -1,15 +1,15 @@
 import 'package:http/http.dart' as http;
 import 'package:xml/xml.dart';
-import 'swepisode.dart';
-import 'swplayback_state.dart';
+import 'eof_episode.dart';
+import 'eof_playback_state.dart';
 
 /// Class Podcast
 /// Represents the Podcast Entity and atributes
 ///
-class SWPodcast {
+class EOFPodcast {
   /// Constructor
   /// XmlDocument [_docXML]
-  SWPodcast(XmlDocument _docXML) {
+  EOFPodcast(XmlDocument _docXML) {
     //
     // Read the Podcast Author
     author = _docXML.findAllElements('itunes:author').isEmpty
@@ -29,7 +29,7 @@ class SWPodcast {
 
     for (var e in _docXML.findAllElements('item')) {
       episodes.add(
-        SWEpisode(
+        EOFEpisode(
           e.findElements('title').isEmpty
               ? ''
               : e.findElements('title').first.text,
@@ -56,7 +56,7 @@ class SWPodcast {
   }
 
   /// Episode List
-  List<SWEpisode> episodes = [];
+  List<EOFEpisode> episodes = [];
 
   /// Podcast Title
   String title;
@@ -80,11 +80,11 @@ class SWPodcast {
   int _playingIndex = -1;
 
   /// Init a Podcast Class with the Feed Address [uri]
-  static Future<SWPodcast> fromFeed(String uri) async {
+  static Future<EOFPodcast> fromFeed(String uri) async {
     try {
       var rssResponse = await http.get(uri);
       var document = parse(rssResponse.body);
-      return SWPodcast(document);
+      return EOFPodcast(document);
     } catch (e) {
       return null;
     }
@@ -101,10 +101,11 @@ class SWPodcast {
       (_playingIndex >= 0) ? _playingIndex = i : _playingIndex = -1;
 
   /// Return current Playerback State
-  SWPlaybackState get playbackState =>
-      (_playingIndex >= 0) ? nowPlaying.playbackState : SWPlaybackState.stopped;
+  EOFPlaybackState get playbackState => (_playingIndex >= 0)
+      ? nowPlaying.playbackState
+      : EOFPlaybackState.stopped;
 
   /// Return Episode now laying
-  SWEpisode get nowPlaying =>
+  EOFEpisode get nowPlaying =>
       (_playingIndex >= 0) ? episodes[_playingIndex] : null;
 }

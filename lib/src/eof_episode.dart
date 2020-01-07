@@ -1,11 +1,11 @@
-import 'swplayback_state.dart';
+import 'eof_playback_state.dart';
 
 /// Class Episode
 /// Represents the Episode Entity and atributes
 ///
-class SWEpisode {
+class EOFEpisode {
   /// Constructor
-  SWEpisode(
+  EOFEpisode(
     this.title,
     this.description,
     this.pubDate,
@@ -29,23 +29,23 @@ class SWEpisode {
   String cover;
 
   /// Episode Playback Status
-  SWPlaybackState _playback = SWPlaybackState.stopped;
+  EOFPlaybackState _playback = EOFPlaybackState.stopped;
 
   /// Return Episode Playback Status
-  SWPlaybackState get playbackState => _playback;
+  EOFPlaybackState get playbackState => _playback;
 
   /// Play Episode
   void play() {
-    _playback = SWPlaybackState.playing;
+    _playback = EOFPlaybackState.playing;
   }
 
   /// Pause Episode
   void pause() {
-    _playback = SWPlaybackState.paused;
+    _playback = EOFPlaybackState.paused;
   }
 
   /// Stop Episode
   void stop() {
-    _playback = SWPlaybackState.stopped;
+    _playback = EOFPlaybackState.stopped;
   }
 }

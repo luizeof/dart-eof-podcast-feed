@@ -1,8 +1,8 @@
-# dart-sw-podcast-feed
+# dart-eof-podcast-feed
 
-Dart Podcast Feed is a Open Source library available at [https://github.com/stackingwidgets/dart-sw-podcast-feed](https://github.com/stackingwidgets/dart-sw-podcast-feed) to parse Podcast Feed.
+Dart EOF Podcast Feed is a Open Source library available at [https://github.com/luizeof/dart-eof-podcast-feed](https://github.com/luizeof/dart-eof-podcast-feed) to parse Podcast Feed.
 
-[![Pub](https://img.shields.io/pub/v/sw_podcast_feed.svg)](https://pub.dartlang.org/packages/sw_podcast_feed)
+[![Pub](https://img.shields.io/pub/v/eof_podcast_feed.svg)](https://pub.dartlang.org/packages/eof_podcast_feed)
 
 ## Features
 
@@ -13,18 +13,18 @@ Dart Podcast Feed is a Open Source library available at [https://github.com/stac
 ## Getting started
 
 ```dart
-import 'package:sw_podcast_feed/sw_podcast_feed.dart';
+import 'package:eof_podcast_feed/eof_podcast_feed.dart';
 ```
 
-The `SWPodcast` class has a static method `fromFeed` that return a
-`Podcast` object.
+The `EOFPodcast` class has a static method `fromFeed` that return a
+`EOFPodcast` object.
 
 ```dart
 void main() async {
 
   // Start the Object with `fromFeed` static method
   var podcast =
-      await SWPodcast.fromFeed('https://FEEDURL');
+      await EOFPodcast.fromFeed('https://FEEDURL');
 
   // You can access the Podcast Details
   print('Podcast Autor: ' + podcast.author);
@@ -35,7 +35,7 @@ void main() async {
   print('Podcast Playback: ' + podcast.playbackState.toString());
 ```
 
- You can access a `List` of `SWEpisode` on `podcast.episodes` property:
+ You can access a `List` of `EOFEpisode` on `podcast.episodes` property:
 
 ```dart
   // And navigate on Episodes List
@@ -52,21 +52,23 @@ void main() async {
 ```
 
 ## Changelog
-Please see the [Changelog](https://github.com/stackingwidgets/dart-sw-podcast-feed/blob/master/CHANGELOG.md) page to know what's recently changed.
+
+Please see the [Changelog](https://github.com/luizeof/dart-eof-podcast-feed/blob/master/CHANGELOG.md) page to know what's recently changed.
 
 ## Contributions
+
 Feel free to contribute to this project.
 
-If you find a bug or want a feature, but don't know how to fix/implement it, [please fill an issue](https://github.com/stackingwidgets/dart-sw-podcast-feed/issues).
+If you find a bug or want a feature, but don't know how to fix/implement it, [please fill an issue](https://github.com/luizeof/dart-eof-podcast-feed/issues).
 
-If you fixed a bug or implemented a feature, [please send a pull request](https://github.com/stackingwidgets/dart-sw-podcast-feed/pulls).
+If you fixed a bug or implemented a feature, [please send a pull request](https://github.com/luizeof/dart-eof-podcast-feed/pulls).
 
 ## Coding Style
 
-Follow the Default Code Style and use the [Dart Analizer](https://github.com/stackingwidgets/dart-sw-podcast-feed/blob/master/analysis_options.yaml) tool:
+Follow the Default Code Style and use the [Dart Analizer](https://github.com/luizeof/dart-eof-podcast-feed/blob/master/analysis_options.yaml) tool:
 
 ```bash
 dartanalyzer --options analysis_options.yaml .
 ```
 
-The production Dart Analizer [log is here](https://github.com/stackingwidgets/dart-sw-podcast-feed/blob/master/LINT.md).
+The production Dart Analizer [log is here](https://github.com/luizeof/dart-eof-podcast-feed/blob/master/LINT.md).
