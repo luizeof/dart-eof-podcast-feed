@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.10
+
+- Update README
+
 ## 1.0.9
 
 - Update README
