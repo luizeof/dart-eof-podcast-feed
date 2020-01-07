@@ -5,7 +5,7 @@ clear
 dartanalyzer --options analysis_options.yaml .
 
 echo "# Dart Analyzer Report" >LINT.md
-echo date >>LINT.md
+date >>LINT.md
 echo "" >>LINT.md
 echo "\`\`\`bash" >>LINT.md
 dartanalyzer --options analysis_options.yaml . >>LINT.md

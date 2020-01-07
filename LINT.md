@@ -1,5 +1,5 @@
 # Dart Analyzer Report
-date
+Ter  7 Jan 2020 03:14:00 -03
 
 ```bash
 Analyzing dart-podcast-feed...
