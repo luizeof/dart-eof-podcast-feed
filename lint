@@ -2,4 +2,11 @@
 
 clear
 dartanalyzer --options analysis_options.yaml .
+
+echo "# Dart Analyzer Report" >LINT.md
+echo date >>LINT.md
+echo "" >>LINT.md
+echo "\`\`\`log " >>LINT.md
+dartanalyzer --options analysis_options.yaml . >>LINT.md
+echo "\`\`\` " >>LINT.md
 pub publish --dry-run
