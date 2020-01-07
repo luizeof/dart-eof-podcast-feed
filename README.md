@@ -1,6 +1,6 @@
 # dart-sw-podcast-feed
 
-Dart Podcast Feed Parser
+Dart Podcast Feed is a Open Source library available at [https://github.com/stackingwidgets/dart-sw-podcast-feed](https://github.com/stackingwidgets/dart-sw-podcast-feed) to parse Podcast Feed.
 
 [![Pub](https://img.shields.io/pub/v/sw_podcast_feed.svg)](https://pub.dartlang.org/packages/sw_podcast_feed)
 
