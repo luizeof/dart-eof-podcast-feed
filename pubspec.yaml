@@ -1,5 +1,5 @@
 name: sw_podcast_feed
-version: 1.1.1
+version: 1.1.2
 description: Stacking Widgets sw_podcast_feed is a package for Dart and Flutter that Read and Parse RSS Feed
 homepage: https://github.com/stackingwidgets/dart-sw-podcast-feed
 environment:
