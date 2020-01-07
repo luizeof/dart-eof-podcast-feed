@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.1.1
+
+- Refactor
+- Update README
+
 ## 1.1.0
 
 - Prefixed Class Names to SW
