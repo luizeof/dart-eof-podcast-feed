@@ -1,7 +1,7 @@
 # Dart Analyzer Report
 date
 
-```
+```bash
 Analyzing dart-podcast-feed...
   lint • Specify type annotations. • lib/src/swpodcast.dart:30:10 • always_specify_types
   lint • Prefer final in for-each loop variable if reference is not reassigned. • lib/src/swpodcast.dart:30:14 • prefer_final_in_for_each
