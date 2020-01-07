@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.1.0
+
+- Prefixed Class Names to SW
+- Package `podcas_feed` is now `sw_podcast_feed`
+
 ## 1.0.10
 
 - Update README

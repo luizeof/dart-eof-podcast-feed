@@ -1,5 +1,5 @@
 /// Control Episode Playback State
-enum PlaybackState {
+enum SWPlaybackState {
   /// Playback Stopped
   stopped,
 

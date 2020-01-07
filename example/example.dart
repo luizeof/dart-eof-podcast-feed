@@ -1,8 +1,8 @@
-import '../lib/podcast_feed.dart';
+import '../lib/sw_podcast_feed.dart';
 
 void main() async {
   var podcast =
-      await Podcast.fromFeed('https://anchor.fm/s/848f2e4/podcast/rss');
+      await SWPodcast.fromFeed('https://anchor.fm/s/848f2e4/podcast/rss');
 
   print('Podcast Autor: ' + podcast.author);
   print('Podcast Title: ' + podcast.title);

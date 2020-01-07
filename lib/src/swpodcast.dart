@@ -1,15 +1,15 @@
 import 'package:http/http.dart' as http;
 import 'package:xml/xml.dart';
-import 'episode.dart';
-import 'playback_state.dart';
+import 'swepisode.dart';
+import 'swplayback_state.dart';
 
 /// Class Podcast
 /// Represents the Podcast Entity and atributes
 ///
-class Podcast {
+class SWPodcast {
   /// Constructor
   /// XmlDocument [_docXML]
-  Podcast(XmlDocument _docXML) {
+  SWPodcast(XmlDocument _docXML) {
     //
     // Read the Podcast Author
     author = _docXML.findAllElements('itunes:author').isEmpty
@@ -27,9 +27,9 @@ class Podcast {
     podcastCoverUrl =
         _docXML.findAllElements('image').first.findElements('url').first.text;
 
-    for (final e in _docXML.findAllElements('item')) {
+    for (var e in _docXML.findAllElements('item')) {
       episodes.add(
-        Episode(
+        SWEpisode(
           e.findElements('title').isEmpty
               ? ''
               : e.findElements('title').first.text,
@@ -56,7 +56,7 @@ class Podcast {
   }
 
   /// Episode List
-  List<Episode> episodes = [];
+  List<SWEpisode> episodes = [];
 
   /// Podcast Title
   String title;
@@ -80,11 +80,11 @@ class Podcast {
   int _playingIndex = -1;
 
   /// Init a Podcast Class with the Feed Address [uri]
-  static Future<Podcast> fromFeed(String uri) async {
+  static Future<SWPodcast> fromFeed(String uri) async {
     try {
       var rssResponse = await http.get(uri);
       var document = parse(rssResponse.body);
-      return Podcast(document);
+      return SWPodcast(document);
     } catch (e) {
       return null;
     }
@@ -101,10 +101,10 @@ class Podcast {
       (_playingIndex >= 0) ? _playingIndex = i : _playingIndex = -1;
 
   /// Return current Playerback State
-  PlaybackState get playbackState =>
-      (_playingIndex >= 0) ? nowPlaying.playbackState : PlaybackState.stopped;
+  SWPlaybackState get playbackState =>
+      (_playingIndex >= 0) ? nowPlaying.playbackState : SWPlaybackState.stopped;
 
   /// Return Episode now laying
-  Episode get nowPlaying =>
+  SWEpisode get nowPlaying =>
       (_playingIndex >= 0) ? episodes[_playingIndex] : null;
 }

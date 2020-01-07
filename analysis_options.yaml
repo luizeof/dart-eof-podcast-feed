@@ -154,6 +154,7 @@ linter:
     - void_checks
 
 analyzer:
+  exclude: [example/**]
   errors:
     - invalid_assignment
     - missing_return
