@@ -17,8 +17,8 @@ class EOFPodcast {
         : _docXML.findAllElements('itunes:author').first.text;
     // Read the Podcast Title
     title = _docXML.findAllElements('title').first.text;
-    // Read the Podcast URL
-    url = _docXML.findAllElements('link').first.text;
+    // Read the Podcast link
+    link = _docXML.findAllElements('link').first.text;
     // Read the Podcast Copyright
     copyright = _docXML.findAllElements('copyright').first.text;
     // Read the Podcast Description
@@ -42,6 +42,9 @@ class EOFPodcast {
           e.findElements('enclosure').isEmpty
               ? ''
               : e.findElements('enclosure').first.getAttribute('url'),
+          e.findElements('link').isEmpty
+              ? ''
+              : e.findElements('link').first.text,
           e.findElements('itunes:image').isNotEmpty
               ? e.findElements('itunes:image').first.getAttribute('href')
               : _docXML
@@ -61,8 +64,8 @@ class EOFPodcast {
   /// Podcast Title
   String title;
 
-  /// Podcast Url
-  String url;
+  /// Podcast Link
+  String link;
 
   /// Podcast Cover Url
   String podcastCoverUrl;
@@ -96,7 +99,7 @@ class EOFPodcast {
   /// Return if Show has Episodes
   bool get hasEpisodes => episodes.isNotEmpty;
 
-  /// Set currente playing episode index [i]
+  /// Set current playing episode index [i]
   void isPlaying(int i) =>
       (_playingIndex >= 0) ? _playingIndex = i : _playingIndex = -1;
 
@@ -105,7 +108,7 @@ class EOFPodcast {
       ? nowPlaying.playbackState
       : EOFPlaybackState.stopped;
 
-  /// Return Episode now laying
+  /// Return Episode now playing
   EOFEpisode get nowPlaying =>
       (_playingIndex >= 0) ? episodes[_playingIndex] : null;
 }

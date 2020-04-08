@@ -9,7 +9,8 @@ class EOFEpisode {
     this.title,
     this.description,
     this.pubDate,
-    this.url,
+    this.enclosureUrl,
+    this.link,
     this.cover,
   );
 
@@ -22,8 +23,11 @@ class EOFEpisode {
   /// Episide Date
   String pubDate;
 
-  /// Episode File Url
-  String url;
+  /// Episode audio file Url
+  String enclosureUrl;
+
+  /// Episode link
+  String link;
 
   /// Episode cover Url
   String cover;
